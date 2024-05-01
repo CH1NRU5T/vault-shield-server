@@ -5,7 +5,8 @@ import 'package:vault_shield_server/db.dart';
 import 'package:vault_shield_server/service.dart';
 
 void main(List<String> arguments) async {
-  await myDB.open();
+  await init();
+  await db?.open();
   const PORT = 8080;
   final service = Service();
   var server = await HttpServer.bind('localhost', PORT);
